@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LocationRepository } from './services/location.repository.service';
 import { HttpClientModule } from "@angular/common/http";
+import { LocationComponent } from './components/location/location.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,
