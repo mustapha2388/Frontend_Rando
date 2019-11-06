@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Location } from '../metier/location';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
     providedIn: 'root'
   })
@@ -16,6 +17,12 @@ export class LocationRepository {
     public getDataFromDB() : Promise<Location> {
         return this.http.get<Location>(`${this.serviceUrl}`)
                         .toPromise();
+      }
+
+      // Creation et retour d'un observable (objet qui émet des informations)
+      public getDataByObservable(): Observable<any>{
+        return this.http.get(`${this.serviceUrl}`);
+        //return null;
       }
 
 
