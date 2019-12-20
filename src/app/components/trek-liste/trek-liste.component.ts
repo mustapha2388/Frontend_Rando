@@ -11,42 +11,40 @@ import { TrekRepositoryService } from 'src/app/services/trek.repository.service'
 })
 export class TrekListeComponent implements OnInit {
 
-  treks : Page<Treks>;
+  treks: Page<Treks>;
 
   // pagination
-  noPage : number;
+  noPage: number;
   taillePage: number;
   totalItems: number;
 
   private trekSubscription: Subscription;
-  
 
   constructor(
-    private trekRepositoryService : TrekRepositoryService,
+    private trekRepositoryService: TrekRepositoryService,
       ) { }
 
   ngOnInit() {
-
     this.noPage = 1;
     this.taillePage = 6;
     this.totalItems = 0;
     this.treks = Page.emptyPage<Treks>();
     this.trekRepositoryService.getTreksAsObservable()
-    .subscribe(repHttpJson=>{
+    .subscribe(repHttpJson => {
       this.noPage = repHttpJson.number + 1;
       this.taillePage = repHttpJson.size;
       this.totalItems = repHttpJson.totalElements;
       this.treks = repHttpJson;
     });
      // requetage initial des images
-     this.trekRepositoryService.refreshListe();
+    this.trekRepositoryService.refreshListe();
   }
 
-  public onPageChanged(event) : void {
+  public onPageChanged(event: { page: number; }): void {
     this.trekRepositoryService.setNopage(event.page - 1);
   }
 
-  public getImageUrl(id: number) : string {
+  public getImageUrl(id: number): string {
     return this.trekRepositoryService.getImageByUrl(id);
   }
 

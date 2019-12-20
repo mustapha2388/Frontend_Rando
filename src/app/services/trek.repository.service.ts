@@ -1,35 +1,35 @@
 
-import { Injectable } from "@angular/core"; 
+import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Treks } from '../metier/treks';
 import { Page } from '../metier/page';
 import { HttpClient, HttpParams } from '@angular/common/http';
-@Injectable() 
+@Injectable()
 
-export class TrekRepositoryService{
-private serviceUrl : string = 'http://localhost:8080/accueil' ;
-private serviceUrlImg : string = 'http://localhost:8080/images' ;
+export class TrekRepositoryService {
+private serviceUrl = 'http://localhost:8080/accueil' ;
+private serviceUrlImg = 'http://localhost:8080/images' ;
 
 // pagination
 private noPage: number;
 private taillePage: number;
 
-private treksSubject : BehaviorSubject<Page<Treks>>;
+private treksSubject: BehaviorSubject<Page<Treks>>;
 
  // injection du requetteur
- constructor(private http : HttpClient) {
+ constructor(private http: HttpClient) {
     this.noPage = 0;
     this.taillePage = 8;
     this.treksSubject = new BehaviorSubject(Page.emptyPage<Treks>());
   }
 
-  public getTreksAsObservable() : Observable<Page<Treks>> {
+  public getTreksAsObservable(): Observable<Page<Treks>> {
     return this.treksSubject.asObservable();
   }
 
-  public refreshListe() :void  {
-    let urlParams : HttpParams = new HttpParams().set('page', "" + this.noPage)
-                                                 .set('size', "" + this.taillePage);
+  public refreshListe(): void  {
+    const urlParams: HttpParams = new HttpParams().set('page', '' + this.noPage)
+                                                 .set('size', '' + this.taillePage);
     // j'envoie la requete ajax
     // quand j'ai la reponse, je republie dans picturesSubject
     this.http.get<Page<Treks>>(this.serviceUrl, {params: urlParams})
@@ -37,17 +37,14 @@ private treksSubject : BehaviorSubject<Page<Treks>>;
                         err => this.treksSubject.next(Page.emptyPage<Treks>()));
   }
 
-  public setNopage(noPage : number) : void {
+  public setNopage(noPage: number): void {
     this.noPage = noPage;
     this.refreshListe();
   }
 
 
   // genere l'url correcte pour afficher une image
-  public getImageByUrl(id : number) : string {
+  public getImageByUrl(id: number): string {
     return `${this.serviceUrlImg}/${id}/thumbdata`;
   }
-  
-
-
 }
