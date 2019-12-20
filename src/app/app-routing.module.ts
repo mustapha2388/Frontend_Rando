@@ -1,5 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
-import { RouteComponent } from './components/route/route.component';
+import { TrekComponent } from './components/trek/trek.component';
 import { NgModule } from '@angular/core';
 import { TrekListeComponent } from './components/trek-liste/trek-liste.component';
 
@@ -7,7 +7,7 @@ import { TrekListeComponent } from './components/trek-liste/trek-liste.component
 
 export const routes: Routes = [
 
-    { path: 'route/:id', component: RouteComponent },
+    { path: 'trek/:id', component: TrekComponent },
     { path: '', component: TrekListeComponent }
   ];
 

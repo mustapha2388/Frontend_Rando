@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Page } from 'src/app/metier/page';
-import { Treks } from 'src/app/metier/treks';
+import { Trek } from 'src/app/metier/treks';
 import { Subscription } from 'rxjs';
 import { TrekRepositoryService } from 'src/app/services/trek.repository.service';
 
@@ -11,7 +11,7 @@ import { TrekRepositoryService } from 'src/app/services/trek.repository.service'
 })
 export class TrekListeComponent implements OnInit {
 
-  treks: Page<Treks>;
+  treks: Page<Trek>;
 
   // pagination
   noPage: number;
@@ -28,8 +28,8 @@ export class TrekListeComponent implements OnInit {
     this.noPage = 1;
     this.taillePage = 6;
     this.totalItems = 0;
-    this.treks = Page.emptyPage<Treks>();
-    this.trekRepositoryService.getTreksAsObservable()
+    this.treks = Page.emptyPage<Trek>();
+    this.trekRepositoryService.getTrekAsObservable()
     .subscribe(repHttpJson => {
       this.noPage = repHttpJson.number + 1;
       this.taillePage = repHttpJson.size;
@@ -37,7 +37,7 @@ export class TrekListeComponent implements OnInit {
       this.treks = repHttpJson;
     });
      // requetage initial des images
-    this.trekRepositoryService.refreshListe();
+    this.trekRepositoryService.getAllTrek();
   }
 
   public onPageChanged(event: { page: number; }): void {

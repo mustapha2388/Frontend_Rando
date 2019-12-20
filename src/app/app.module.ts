@@ -1,3 +1,4 @@
+import { TrekComponent } from './components/trek/trek.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,7 +11,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule } from '@angular/forms';
 import { TrekRepositoryService } from './services/trek.repository.service';
-import { RouteComponent } from './components/route/route.component';
 import { routes } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { RouteRepositoryService } from './services/route.repository.service';
@@ -20,7 +20,7 @@ import { RouteRepositoryService } from './services/route.repository.service';
     AppComponent,
     LocationComponent,
     TrekListeComponent,
-    RouteComponent
+    TrekComponent
   ],
   imports: [
     BrowserModule,

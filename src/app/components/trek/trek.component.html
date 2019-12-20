@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="card mx-auto">
+      <div class="card-header">
+        {{trek.nom}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">TITLE</h5>
+        <p class="card-text">{{trek.description}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+      <br/>
+    
+
+     
+      <div id="list-example" class="list-group" *ngFor="let data of trek.routes">
+        <div class="list-group-item list-group-item-action" > createur: {{data.nomCreateur}}<br/>
+                                                              date de modification: {{data.dateModification}}<br/>
+                                                              dernière maj:{{data.dateDeCreation}} <br/>
+        <img src="assets/img/mapTemplate.png"/>
+                                                            </div>
+      </div>
+    </div>
+
+   
+    
+  </div>
+</div>

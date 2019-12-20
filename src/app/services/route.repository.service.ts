@@ -6,7 +6,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable()
 
-export class RouteRepositoryService{
+export class RouteRepositoryService {
     private serviceUrl = ' http://localhost:8080/randonneeDetail';
     private serviceUrlImg = 'http://localhost:8080/images' ;
 // pagination
@@ -16,17 +16,17 @@ private taillePage: number;
 private routeSubject: BehaviorSubject<Page<Route>>;
 
 
-constructor(private http: HttpClient){
+constructor(private http: HttpClient) {
     this.noPage = 0;
     this.taillePage = 8;
     this.routeSubject = new BehaviorSubject(Page.emptyPage<Route>());
 }
 
-public getRoutesAsObservable(): Observable<Page<Route>>{
+public getRoutesAsObservable(): Observable<Page<Route>> {
     return this.routeSubject.asObservable();
 }
 
-public refreshListe(): void {
+public getAllTrek(): void {
 
     const urlParams: HttpParams = new HttpParams().set('page', '' + this.noPage)
                                                  .set('size', '' + this.taillePage);
