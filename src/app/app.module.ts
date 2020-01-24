@@ -20,7 +20,7 @@ import { RouteRepositoryService } from './services/route.repository.service';
     AppComponent,
     LocationComponent,
     TrekListeComponent,
-    TrekComponent
+    TrekComponent,
   ],
   imports: [
     BrowserModule,
