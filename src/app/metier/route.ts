@@ -1,4 +1,5 @@
 import { Picture } from './picture';
+import { Location } from "./location";
 
 export class Route {
 constructor(
@@ -7,5 +8,6 @@ constructor(
     public dateModification: Date,
     public nomCreateur: string,
     public image: Picture,
-    public trajet: Location []) { }
+    public locations: Location [],
+    public nomRoute: string) { }
 }

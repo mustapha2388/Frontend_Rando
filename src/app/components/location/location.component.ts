@@ -27,8 +27,8 @@ export class LocationComponent implements OnInit {
       getDataFromDB().then(
         response => {
 
-          this.longitude = response.content[2].centre_geo.coordinates[0];
-          this.latitude = response.content[2].centre_geo.coordinates[1];
+         // this.longitude = response.content[2].centre_geo.coordinates[0];
+          //this.latitude = response.content[2].centre_geo.coordinates[1];
 
           console.log("longitude:" + this.longitude + " latitude:" + this.latitude);
 
