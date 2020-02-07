@@ -40,5 +40,6 @@ public getImageByUrl(id: number): string {
     return `${this.serviceUrlImg}/${id}/thumbdata`;
   }
 
+
 }
 

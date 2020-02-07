@@ -14,6 +14,9 @@ import { TrekRepositoryService } from './services/trek.repository.service';
 import { routes } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { RouteRepositoryService } from './services/route.repository.service';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { EditionComponent } from './components/edition/edition.component';
+import { CreationComponent } from './components/creation/creation.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { RouteRepositoryService } from './services/route.repository.service';
     LocationComponent,
     TrekListeComponent,
     TrekComponent,
+    NavBarComponent,
+    EditionComponent,
+    CreationComponent,
   ],
   imports: [
     BrowserModule,

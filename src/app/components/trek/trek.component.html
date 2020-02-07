@@ -1,43 +1,34 @@
 <div class="container-fluid">
-  <div class="row">
-    {{trek.nom}}
-    <div class="card mx-auto">
-      <div class="card-header">
-        
-      </div>
-      <div class="card-body">
-        <h5 class="card-title"> 
-          {{trek.nom}}
-        </h5>
-       
-        <p class="card-text">{{trek.description}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-      </div>
-      <br />
 
-
-
-      <div id="list-example" class="list-group" *ngFor="let data of trek.routes">
-        <div class="list-group-item list-group-item-action" (click)="zoomOnRoute(data)"> 
-          <h3>{{data.nomRoute}}</h3>
-          createur: {{data.nomCreateur}}<br />
-          date de modification: {{data.dateModification}}<br />
-          dernière maj:{{data.dateDeCreation}} <br />
-          <!-- <img src="assets/img/mapTemplate.png" /> -->
-        </div>
-       
-      </div>
-
-    
-      <!-- Déclaration du conteneur de la carte avec l'id "frugalmap" -->
-  
-
-
+  <div class="card">
+    <div class="card-body">
+      <h3 class="text-center">{{trek.nom}}</h3>
     </div>
-
-
-
+    <p class="card-text text-center">{{trek.description}}</p>
   </div>
-  <div id="frugalmap">
-  </div>
+
+  <br />
+  <div class="row">
+
+    <div class="col-sm-3" *ngFor="let data of trek.routes">
+      <div class="card mx-auto">
+
+     <div (click)="zoomOnRoute(data)">
+            <h3>{{data.nomRoute}}</h3>
+            createur: {{data.nomCreateur}}<br />
+            date de modification: {{data.dateModification}}<br />
+            dernière maj:{{data.dateDeCreation}} <br />
+            <!-- <img src="assets/img/mapTemplate.png" /> -->
+          </div>
+          <br />
+        </div>
+
+        <!-- Déclaration du conteneur de la carte avec l'id "frugalmap" -->
+      </div>
+ 
+
+  <br />
+
+  <div id="frugalmap"></div>
+
 </div>
